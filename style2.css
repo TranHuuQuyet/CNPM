@@ -1,0 +1,46 @@
+< > body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0f172a; /* màu đen xanh */
+  color: #fff;
+  height: 100vh; /* toàn màn hình */
+  display: flex;
+  flex-direction: column;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  background: linear-gradient(to right, #0f172a, #0e7490);
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.logo img {
+  width: 40px;
+  height: 40px;
+}
+nav a {
+  margin-left: 20px;
+  text-decoration: none;
+  font-weight: bold;
+  color: #f8fafc;
+}
+nav a:hover {
+  color: #38bdf8;
+}
+main {
+  flex: 1; /* chiếm hết phần còn lại */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 150px;
+}
+.center-text {
+  font-size: 40px;
+  font-weight: bold;
+  color: #38bdf8; /* màu xanh nổi bật */
+}
