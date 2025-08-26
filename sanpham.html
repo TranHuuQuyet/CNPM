@@ -16,19 +16,9 @@
     <nav>
       <a href="index.html"><u>Home</u></a>
       <a href="sanpham.html"><u>Sản phẩm</u></a>
+      <a href="giohang.html"><u>Giỏ hàng</u></a>
     </nav>
   </header>
-    <!-- <header>      <h1>🛒 Demo Group12 - GA4</h1>
-      <p>Theo dõi toàn bộ quy trình mua hàng với Google Analytics 4</p>
-       <a href="home.html">Home</a>
-      <a href="sanpham.html">Sản phẩm <a> </header>
-    <div class="wrap">
-      <header> -->
-        <!-- <div class="brand">
-          <div class="logo" aria-hidden="true"></div>
-          <h1>Mini Shop — Demo 6 Sản Phẩm</h1>
-        </div> -->
-
         <div class="toolbar">
           <div class="search" role="search">
             <span class="icon">🔎</span>
@@ -181,23 +171,43 @@
       </section>
     </div>
 
-    <script>
-      // Tiny UX: toast khi nhấn "Thêm vào giỏ"
-      const toast = (msg) => {
-        const el = document.createElement("div");
-        el.textContent = msg;
-        el.style.cssText = `position:fixed; left:50%; transform:translateX(-50%); bottom:22px; padding:10px 14px; border-radius:10px; 
-        background:linear-gradient(135deg, #22c55e, #16a34a); color:#0b1020; font-weight:800; box-shadow:0 8px 22px rgba(22,163,74,.35); z-index:9999;`;
-        document.body.appendChild(el);
-        setTimeout(() => {
-          el.style.transition = "opacity .35s";
-          el.style.opacity = "0";
-        }, 1200);
-        setTimeout(() => el.remove(), 1700);
-      };
-      document.querySelectorAll(".card .btn:first-child").forEach((btn) => {
-        btn.addEventListener("click", () => toast("Đã thêm vào giỏ ✨"));
-      });
-    </script>
+<script>
+
+  // Lấy giỏ hàng từ localStorage (nếu chưa có thì tạo mảng rỗng)
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  // Hiển thị giỏ hàng trong console (chỉ để kiểm tra)
+  function renderCart() {
+    console.log(cart);
+  }
+
+  // Toast khi thêm vào giỏ
+  const toast = (msg) => {
+    const el = document.createElement("div");
+    el.textContent = msg;
+    el.style.cssText = `position:fixed; left:50%; transform:translateX(-50%); 
+      bottom:22px; padding:10px 14px; border-radius:10px; 
+      background:linear-gradient(135deg, #22c55e, #16a34a); color:#fff; 
+      font-weight:600; box-shadow:0 8px 22px rgba(22,163,74,.35); z-index:9999;`;
+    document.body.appendChild(el);
+    setTimeout(() => { el.style.transition = "opacity .35s"; el.style.opacity = "0"; }, 1200);
+    setTimeout(() => el.remove(), 1700);
+  };
+
+  // Gắn sự kiện cho nút "Thêm vào giỏ"
+  document.querySelectorAll(".card").forEach((card) => {
+    const btn = card.querySelector(".btn:first-child");
+    btn.addEventListener("click", () => {
+      const name = card.querySelector(".title").textContent;
+      const price = card.querySelector(".price").textContent;
+
+      cart.push({ name, price });
+      localStorage.setItem("cart", JSON.stringify(cart)); // Lưu vào localStorage
+
+      toast(`Đã thêm ${name} vào giỏ 🛒`);
+      renderCart();
+    });
+  });
+</script>
   </body>
 </html>
