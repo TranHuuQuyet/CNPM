@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Demo GA Group12 - Mini Shop</title>
+    <link rel="stylesheet" href="style2.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="stylecheckout.css" />
+    <link
+      rel="shortcut icon"
+      href="https://cdn-icons-png.flaticon.com/512/263/263142.png"
+      type="image/x-icon"
+    />
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-20G9KY5HQT"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-20G9KY5HQT");
+    </script>
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/263/263142.png"
+          alt="cart icon"
+        />
+        <b id="name">Group12</b>
+      </div>
+      <nav>
+        <a href="home.html"><u>Home</u></a>
+        <a href="sanpham.html"><u>Sản phẩm</u></a>
+        <a href="giohang.html"><u>Giỏ hàng</u></a>
+      </nav>
+    </header>
+
+    <main>
+      <h2>Thanh toán</h2>
+      <section class="checkout-container">
+        <!-- Thông tin khách hàng -->
+        <div class="checkout-info">
+          <h3>Thông tin khách hàng</h3>
+          <form>
+            <label>Họ và tên</label>
+            <input type="text" placeholder="Nhập họ và tên" required />
+
+            <label>Email</label>
+            <input type="email" placeholder="example@gmail.com" required />
+
+            <label>Số điện thoại</label>
+            <input type="tel" placeholder="0123-456-789" required />
+
+            <label>Địa chỉ giao hàng</label>
+            <textarea
+              placeholder="Số nhà, đường, phường/xã, quận/huyện, tỉnh/thành"
+              required
+            ></textarea>
+          </form>
+        </div>
+
+        <!-- Phương thức thanh toán -->
+        <div class="checkout-payment">
+          <h3>Phương thức thanh toán</h3>
+          <form>
+            <label
+              ><input type="radio" name="payment" checked /> Thanh toán khi nhận
+              hàng (COD)</label
+            >
+            <label
+              ><input type="radio" name="payment" /> Chuyển khoản ngân
+              hàng</label
+            >
+            <label
+              ><input type="radio" name="payment" /> Ví điện tử (Momo,
+              ZaloPay,...)</label
+            >
+          </form>
+        </div>
+
+        <!-- Tóm tắt đơn hàng -->
+        <div class="checkout-summary">
+          <h3>Đơn hàng của bạn</h3>
+          <ul id="order-summary"></ul>
+          <p id="order-total"></p>
+          <button id="confirm-order" class="checkout-btn">
+            Xác nhận đặt hàng
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>Minishop by Group12</p>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        let orderList = document.getElementById("order-summary");
+        let orderTotal = document.getElementById("order-total");
+        let total = 0;
+
+        if (cart.length === 0) {
+          orderList.innerHTML = "<li>Giỏ hàng trống!</li>";
+        } else {
+          cart.forEach((item) => {
+            let priceNum = parseInt(item.price.replace(/[^\d]/g, ""));
+            total += priceNum;
+            let li = document.createElement("li");
+            li.textContent = `${item.name} - ${item.price}`;
+            orderList.appendChild(li);
+          });
+          orderTotal.textContent =
+            "Tổng cộng: " + total.toLocaleString("vi-VN") + " ₫";
+        }
+
+        document
+          .getElementById("confirm-order")
+          .addEventListener("click", () => {
+            alert("Đặt hàng thành công! Cảm ơn bạn ❤️");
+            localStorage.removeItem("cart");
+            window.location.href = "home.html";
+          });
+      });
+    </script>
+  </body>
+</html>

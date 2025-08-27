@@ -89,15 +89,19 @@ document.getElementById("checkout-btn").addEventListener("click", function() {
   if (cart.length === 0) {
     alert("Giỏ hàng đang trống! Hãy thêm sản phẩm trước.");
   } else {
-    alert("Thanh toán thành công! Cảm ơn bạn đã mua hàng ❤️");
+    // alert("Thanh toán thành công! Cảm ơn bạn đã mua hàng ❤️");
     // Nếu có trang thanh toán thật thì redirect:
-    // window.location.href = "checkout.html";
+    window.location.href = "checkout.html";
 
-    cart = []; // reset giỏ hàng
-    localStorage.setItem("cart", JSON.stringify(cart)); // xoá luôn trong localStorage
-    renderCart(); // render lại giỏ hàng cho sạch
+    // cart = []; // reset giỏ hàng
+    // localStorage.setItem("cart", JSON.stringify(cart)); // xoá luôn trong localStorage
+    // renderCart(); // render lại giỏ hàng cho sạch
   }
 });
   </script>
+
+      <footer>
+      <p>Minishop by Group12</p>
+    </footer>
   </body>
 </html>

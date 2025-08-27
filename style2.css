@@ -1,9 +1,9 @@
-< > body {
+body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: #0f172a; /* màu đen xanh */
+  background: #506596; /* màu đen xanh */
   color: #fff;
-  height: 100vh; /* toàn màn hình */
+  height: 100pc; /* toàn màn hình */
   display: flex;
   flex-direction: column;
 }

@@ -1,0 +1,197 @@
+/* ===== Reset & Layout ===== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  width: 100%;
+  overflow-x: hidden; /* ngăn kéo ngang */
+  font-family: Arial, sans-serif;
+  background: #f5f5f5;
+  color: #333;
+}
+
+/* ===== Header ===== */
+header {
+  background: #222;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  flex-wrap: wrap;
+  width: 95%; /* đồng bộ với main */
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+header .logo {
+  display: flex;
+  align-items: center;
+}
+
+header .logo img {
+  width: 36px;
+  margin-right: 10px;
+}
+
+header nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+header nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+header nav a:hover {
+  color: #ff9800;
+}
+
+/* ===== Main ===== */
+main {
+  width: 95%; /* cùng độ rộng với header */
+  max-width: 1100px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* ===== Checkout Container ===== */
+.checkout-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  width: 100%;
+}
+
+.checkout-info,
+.checkout-payment,
+.checkout-summary {
+  background: #fafafa;
+  padding: 15px;
+  border-radius: 10px;
+  border: 1px solid #eee;
+}
+
+/* ===== Form ===== */
+.checkout-info input,
+.checkout-info textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0 15px 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.checkout-info label {
+  font-weight: bold;
+  display: block;
+}
+
+.checkout-info textarea {
+  resize: vertical;
+  min-height: 70px;
+}
+
+/* ===== Payment ===== */
+/* .checkout-payment label {
+  display: block;
+  margin-bottom: 10px;
+  cursor: pointer;
+} */
+/* ===== Payment ===== */
+.checkout-payment label {
+  display: flex; /* dùng flex để canh hàng ngang */
+  align-items: center; /* căn giữa theo chiều dọc */
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 14px;
+  gap: 8px; /* khoảng cách giữa nút radio và chữ */
+}
+
+.checkout-payment input {
+  margin: 0; /* bỏ margin mặc định của input */
+  transform: scale(1.1); /* phóng to radio 1 chút cho dễ bấm */
+}
+
+.checkout-payment input {
+  margin-right: 8px;
+}
+
+/* ===== Order Summary ===== */
+.checkout-summary ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.checkout-summary li {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.checkout-summary p {
+  font-size: 16px;
+  margin-top: 12px;
+}
+
+.checkout-btn {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  background: #ff9800;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: all 0.3s ease;
+}
+
+.checkout-btn:hover {
+  background: #e68900;
+  transform: scale(1.02);
+}
+
+/* ===== Footer ===== */
+footer {
+  background: #222;
+  color: #fff;
+  text-align: center;
+  padding: 12px;
+  margin-top: 20px;
+  font-size: 14px;
+  border-top: 3px solid #ff9800;
+  width: 100%;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  header nav {
+    justify-content: center;
+    margin-top: 10px;
+  }
+}
