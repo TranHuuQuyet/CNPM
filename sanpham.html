@@ -43,7 +43,7 @@
             <p class="desc">Bluetooth 5.3, chống ồn chủ động ANC, pin 40h.</p>
             <div class="meta">
               <div class="price">1.290.000₫</div>
-              <div class="rating" aria-label="4.6 trên 5">★★★★☆ (4.6)</div>
+              <div class="rating" aria-label="4.6 trên 5">★★★★☆ </div>
             </div>
             <div class="actions">
               <button class="btn" aria-label="Thêm Tai nghe X-Beat Pro vào giỏ">
@@ -206,6 +206,27 @@
 
       toast(`Đã thêm ${name} vào giỏ 🛒`);
       renderCart();
+    });
+  });
+
+//   thêm tìm kiếm sản phẩmm
+  // Lấy input ô tìm kiếm
+  const searchInput = document.querySelector(".search input");
+
+  // Lắng nghe sự kiện gõ phím
+  searchInput.addEventListener("input", function () {
+    const keyword = this.value.toLowerCase().trim();
+    const products = document.querySelectorAll(".card");
+
+    products.forEach((card) => {
+      const title = card.querySelector(".title").textContent.toLowerCase();
+      const desc = card.querySelector(".desc").textContent.toLowerCase();
+
+      if (title.includes(keyword) || desc.includes(keyword)) {
+        card.style.display = "block"; // Hiện sản phẩm nếu khớp
+      } else {
+        card.style.display = "none"; // Ẩn sản phẩm nếu không khớp
+      }
     });
   });
 </script>
