@@ -4,15 +4,34 @@ nav a.active {
 }
 
 
-header {
+/* header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 15px 40px;
   background: linear-gradient(to right, #0f172a, #0e7490);
   color: #e2e8f0;
+} */
+header {
+  position: fixed; /* dính header khi scroll */
+  top: 0; /* nằm trên cùng */
+  left: 0;
+  width: 100%; /* full chiều ngang */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  background: linear-gradient(to right, #0f172a, #0e7490);
+  z-index: 1000; /* nằm trên các phần khác */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4); /* đổ bóng nhẹ */
 }
 
+/* thêm padding cho body để tránh bị header che */
+body {
+  display: flex;
+  flex-direction: column;
+  padding-top: 80px; /* bằng chiều cao header */
+}
 .logo {
   display: flex;
   align-items: center;
@@ -21,7 +40,7 @@ header {
 }
 
 .logo img {
-  width: 40px;
+  width: 35px;
   height: 35px;
 }
 
