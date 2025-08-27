@@ -1,34 +1,45 @@
-
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Demo GA Group12 - Mini Shop</title>
+    <link rel="stylesheet" href="style2.css" />
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="style2.css">
+    <link
+      rel="shortcut icon"
+      href="https://cdn-icons-png.flaticon.com/512/263/263142.png"
+      type="image/x-icon"
+    />
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-20G9KY5HQT"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-20G9KY5HQT");
+    </script>
   </head>
   <body>
     <header>
-   <div class="logo">
-  <img src="https://cdn-icons-png.flaticon.com/512/263/263142.png" alt="cart icon">
-  <b id="name"> <p>Group12</p></b>
-</div>
+      <div class="logo">
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/263/263142.png"
+          alt="cart icon"
+        />
+        <b id="name">Group12</b>
+      </div>
+      <nav>
+        <a href="home.html"><u>Home</u></a>
+        <a href="sanpham.html"><u>Sản phẩm</u></a>
+        <a href="giohang.html"><u>Giỏ hàng</u></a>
+      </nav>
+    </header>
 
-    <nav>
-      <a href="index.html"><u>Home</u></a>
-      <a href="sanpham.html"><u>Sản phẩm</u></a>
-      <a href="giohang.html"><u>Giỏ hàng</u></a>
-    </nav>
-    
-  </header>
-        <div class="toolbar">
-          <div class="search" role="search">
-            <span class="icon">🔎</span>
-            <input placeholder="Tìm kiếm sản phẩm…" aria-label="Tìm kiếm" />
-          </div>
-          <button class="pill" aria-label="Bộ lọc">Bộ lọc</button>
-        </div>
-      </header>
   <h2 id="giohang">Giỏ hàng của bạn</h2>
   <div id="cart"></div>
   <h3 id="total"></h3>
