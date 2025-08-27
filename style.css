@@ -1,3 +1,9 @@
+nav a.active {
+  color: #38bdf8;   /* màu xanh nổi bật */
+  border-bottom: 2px solid #38bdf8; /* gạch chân highlight */
+}
+
+
 header {
   display: flex;
   justify-content: space-between;
@@ -213,7 +219,7 @@ h1 {
   max-width: 70vw;
   padding: 10px 14px 10px 38px;
   border-radius: 12px;
-  border: 1px solid #22304d;
+  border: 1px solid #0e2a62d4;
   background: #0a1020;
   color: var(--text);
   outline: none;

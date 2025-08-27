@@ -1,12 +1,27 @@
-body {
+/* body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: #506596; /* màu đen xanh */
-  color: #fff;
-  height: 100pc; /* toàn màn hình */
+  background: #3c4766; /* màu đen xanh */
+/* color: #fff;
+  height: 100cqb; /* toàn màn hình */
+/* display: flex; */
+/* flex-direction: column; */
+/* } */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background: #0b1329; /* màu nền đồng nhất toàn trang */
+  /* color: #fff; */
+  min-height: 100%; /* body sẽ luôn ít nhất bằng chiều cao viewport */
+}
+
+body {
   display: flex;
   flex-direction: column;
 }
+
 header {
   display: flex;
   justify-content: space-between;
@@ -33,12 +48,14 @@ nav a:hover {
   color: #38bdf8;
 }
 main {
-  flex: 1; /* chiếm hết phần còn lại */
+  flex: 1;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 150px;
+  justify-content: center; /* căn giữa ngang */
+  align-items: center; /* căn giữa dọc */
+  min-height: 100vh; /* chiếm đủ 100% chiều cao màn hình */
+  margin: 0; /* bỏ margin-top */
 }
+
 .center-text {
   font-size: 40px;
   font-weight: bold;
