@@ -96,10 +96,6 @@
       </section>
     </main>
 
-    <footer>
-      <p>Minishop by Group12</p>
-    </footer>
-
     <script>
       document.addEventListener("DOMContentLoaded", () => {
         let cart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -126,9 +122,13 @@
           .addEventListener("click", () => {
             alert("Đặt hàng thành công! Cảm ơn bạn ❤️");
             localStorage.removeItem("cart");
-            window.location.href = "home.html";
+            window.location.href = "index.html";
           });
       });
     </script>
+
+    <footer>
+      <p>Minishop by Group12</p>
+    </footer>
   </body>
 </html>
