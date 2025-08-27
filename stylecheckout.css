@@ -81,7 +81,7 @@ h2 {
 /* ===== Checkout Container ===== */
 .checkout-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(20px, 1fr));
   gap: 20px;
   width: 100%;
 }
@@ -202,4 +202,16 @@ footer {
     justify-content: center;
     margin-top: 10px;
   }
+}
+#fullname,
+#email,
+#phone,
+#address {
+  width: 1500px; /* độ rộng */
+  height: 40px; /* độ cao */
+  font-size: 16px; /* cỡ chữ */
+  padding: 8px; /* khoảng cách trong */
+  border-radius: 6px; /* bo góc cho đẹp */
+  border: 1px solid #ccc;
+  margin-bottom: 12px; /* cách giữa các ô */
 }

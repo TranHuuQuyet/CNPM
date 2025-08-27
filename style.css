@@ -1,6 +1,6 @@
 nav a.active {
   color: #38bdf8;   /* màu xanh nổi bật */
-  border-bottom: 2px solid #38bdf8; /* gạch chân highlight */
+  border-bottom: 2px solid #f4f7f9; /* gạch chân highlight */
 }
 
 
@@ -16,6 +16,7 @@ header {
   position: fixed; /* dính header khi scroll */
   top: 0; /* nằm trên cùng */
   left: 0;
+  height: 10%;
   width: 100%; /* full chiều ngang */
   display: flex;
   justify-content: space-between;
@@ -23,14 +24,14 @@ header {
   padding: 15px 40px;
   background: linear-gradient(to right, #0f172a, #0e7490);
   z-index: 1000; /* nằm trên các phần khác */
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4); /* đổ bóng nhẹ */
+  box-shadow: 0 2px 6px #28b3e6f6; /* đổ bóng nhẹ */
 }
 
 /* thêm padding cho body để tránh bị header che */
 body {
   display: flex;
   flex-direction: column;
-  padding-top: 80px; /* bằng chiều cao header */
+  padding-top: 20px; /* bằng chiều cao header */
 }
 .logo {
   display: flex;
@@ -65,7 +66,7 @@ nav a {
 }
 
 nav a:hover {
-  color: #38bdf8;
+  color: #069cdd;
 }
 
 /* fix header */
@@ -85,8 +86,8 @@ body {
   color: #333;
 }
 header {
-  background: linear-gradient(135deg, #1b0d07, #00b4d8);
-  color: rgb(174, 221, 227);
+  background: linear-gradient(135deg, #000000, #2c7d8d);
+  color: rgb(41, 140, 183);
   text-align: center;
   padding: 40px 20px;
   size: 50px;
@@ -157,11 +158,11 @@ button {
   background: #005bb5;
 }
 footer {
-  background: #222;
+  background: #0e1c2c;
   color: white;
   text-align: center;
   padding: 15px;
-  margin-top: 40px;
+  margin-top: 1px;
 }
 
 /* san pham */

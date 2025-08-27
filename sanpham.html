@@ -236,6 +236,23 @@
       }
     });
   });
+
+
+
+    // Gắn sự kiện cho nút "Mua Ngay"
+  document.querySelectorAll(".card").forEach((card) => {
+    const buyNowBtn = card.querySelector(".btn.secondary");
+    buyNowBtn.addEventListener("click", () => {
+      const name = card.querySelector(".title").textContent;
+      const price = card.querySelector(".price").textContent;
+
+      // Lưu sản phẩm đang mua vào localStorage (tách riêng checkout)
+      localStorage.setItem("checkoutItem", JSON.stringify({ name, price }));
+
+      // Chuyển hướng sang trang checkout
+      window.location.href = "checkout.html";
+    });
+  });
 </script>
     <footer>
       <p>Minishop by Group12</p>

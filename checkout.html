@@ -40,61 +40,67 @@
         <a href="giohang.html"><u>Giỏ hàng</u></a>
       </nav>
     </header>
+    <form id="checkout-form">
+      <div class="checkout-info">
+        <h3>Thông tin khách hàng</h3>
 
-    <main>
-      <h2>Thanh toán</h2>
-      <section class="checkout-container">
-        <!-- Thông tin khách hàng -->
-        <div class="checkout-info">
-          <h3>Thông tin khách hàng</h3>
-          <form>
-            <label>Họ và tên</label>
-            <input type="text" placeholder="Nhập họ và tên" required />
+        <label for="fullname">Họ và tên</label>
+        <input
+          id="fullname"
+          type="text"
+          placeholder="Nhập họ và tên"
+          required
+        />
 
-            <label>Email</label>
-            <input type="email" placeholder="example@gmail.com" required />
+        <label for="email">Email</label>
+        <input
+          id="email"
+          type="email"
+          placeholder="example@gmail.com"
+          required
+        />
 
-            <label>Số điện thoại</label>
-            <input type="tel" placeholder="0123-456-789" required />
+        <label for="phone">Số điện thoại</label>
+        <input
+          id="phone"
+          type="tel"
+          placeholder="0123-456-789"
+          required
+          pattern="0[0-9]{9}"
+        />
 
-            <label>Địa chỉ giao hàng</label>
-            <textarea
-              placeholder="Số nhà, đường, phường/xã, quận/huyện, tỉnh/thành"
-              required
-            ></textarea>
-          </form>
-        </div>
+        <label for="address">Địa chỉ giao hàng</label>
+        <textarea
+          id="address"
+          placeholder="Số nhà, đường, phường/xã, quận/huyện, tỉnh/thành"
+          required
+        ></textarea>
+      </div>
 
-        <!-- Phương thức thanh toán -->
-        <div class="checkout-payment">
-          <h3>Phương thức thanh toán</h3>
-          <form>
-            <label
-              ><input type="radio" name="payment" checked /> Thanh toán khi nhận
-              hàng (COD)</label
-            >
-            <label
-              ><input type="radio" name="payment" /> Chuyển khoản ngân
-              hàng</label
-            >
-            <label
-              ><input type="radio" name="payment" /> Ví điện tử (Momo,
-              ZaloPay,...)</label
-            >
-          </form>
-        </div>
+      <div class="checkout-payment">
+        <h3>Phương thức thanh toán</h3>
+        <label
+          ><input type="radio" name="payment" checked /> Thanh toán khi nhận
+          hàng (COD)</label
+        >
+        <label
+          ><input type="radio" name="payment" /> Chuyển khoản ngân hàng</label
+        >
+        <label
+          ><input type="radio" name="payment" /> Ví điện tử (Momo,
+          ZaloPay,...)</label
+        >
+      </div>
 
-        <!-- Tóm tắt đơn hàng -->
-        <div class="checkout-summary">
-          <h3>Đơn hàng của bạn</h3>
-          <ul id="order-summary"></ul>
-          <p id="order-total"></p>
-          <button id="confirm-order" class="checkout-btn">
-            Xác nhận đặt hàng
-          </button>
-        </div>
-      </section>
-    </main>
+      <div class="checkout-summary">
+        <h3>Đơn hàng của bạn</h3>
+        <ul id="order-summary"></ul>
+        <p id="order-total"></p>
+        <button type="submit" id="confirm-order" class="checkout-btn">
+          Xác nhận đặt hàng
+        </button>
+      </div>
+    </form>
 
     <script>
       document.addEventListener("DOMContentLoaded", () => {
@@ -117,13 +123,22 @@
             "Tổng cộng: " + total.toLocaleString("vi-VN") + " ₫";
         }
 
-        document
-          .getElementById("confirm-order")
-          .addEventListener("click", () => {
-            alert("Đặt hàng thành công! Cảm ơn bạn ❤️");
-            localStorage.removeItem("cart");
-            window.location.href = "index.html";
-          });
+        const form = document.getElementById("checkout-form");
+
+        form.addEventListener("submit", (e) => {
+          e.preventDefault();
+
+          if (!form.checkValidity()) {
+            alert(
+              "⚠️ Vui lòng điền đầy đủ và đúng thông tin trước khi đặt hàng!"
+            );
+            return;
+          }
+
+          alert("✅ Đặt hàng thành công! Cảm ơn bạn ❤️");
+          localStorage.removeItem("cart");
+          window.location.href = "index.html";
+        });
       });
     </script>
 
