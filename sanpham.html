@@ -5,25 +5,15 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="stylehome.css">
     <script src="sanpham.js" defer></script>
+    <script src="homee.js" defer></script>
     <link
       rel="shortcut icon"
       href="https://cdn-icons-png.flaticon.com/512/263/263142.png"
       type="image/x-icon"
     />
     <title>Group12 - Sản Phẩm</title>
-     <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-20G9KY5HQT"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-      gtag("config", "G-20G9KY5HQT");
-    </script>
   </head>
   <body>
     <header>
@@ -32,7 +22,9 @@
   <b id="name"> <p>Group12</p></b>
 </div>
 
-    <nav>
+      <!-- Nút hamburger -->
+      <div class="menu-toggle" id="menu-toggle">☰</div>
+    <nav id="navbar">
       <a href="index.html"><u>Home</u></a>
       <a href="sanpham.html" class="active"><u>Sản phẩm</u></a>
       <a href="giohang.html"><u>Giỏ hàng</u></a>

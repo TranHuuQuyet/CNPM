@@ -77,3 +77,40 @@ main {
 #giohang {
   margin-left: 260px;
 }
+
+/* Hamburger menu mặc định ẩn trên PC */
+.menu-toggle {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: #f8fafc;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  nav {
+    display: none;
+    flex-direction: column;
+    background: #151c26;
+    position: absolute;
+    top: 70px; /* xuống dưới header */
+    right: 20px;
+    width: 200px;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  }
+
+  nav a {
+    margin: 12px 0;
+    display: block;
+  }
+
+  nav.active {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}

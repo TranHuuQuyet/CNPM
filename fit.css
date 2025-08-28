@@ -1,0 +1,247 @@
+/* ========== Reset & Global ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-family: Arial, sans-serif;
+  background: #f5f5f5;
+  color: #333;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* ========== Header ========== */
+header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(to right, #0f172a, #0e7490);
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 24px;
+  z-index: 1000;
+}
+
+header .logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+header .logo img {
+  width: 36px;
+  height: 36px;
+}
+
+header nav a {
+  margin-left: 16px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+header nav a.active,
+header nav a:hover {
+  color: #ff9800;
+}
+
+/* ========== Toolbar ========== */
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  background: #fff;
+  border-bottom: 1px solid #ddd;
+}
+
+.toolbar .search {
+  display: flex;
+  align-items: center;
+  background: #f1f1f1;
+  padding: 6px 12px;
+  border-radius: 20px;
+}
+
+.toolbar .search input {
+  border: none;
+  outline: none;
+  background: transparent;
+  margin-left: 6px;
+  font-size: 14px;
+}
+
+.toolbar button.pill {
+  background: #0e7490;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 6px 14px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.toolbar button.pill:hover {
+  background: #0c5970;
+}
+
+/* ========== Product Grid ========== */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+/* ========== Product Card ========== */
+.card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.card .media {
+  position: relative;
+}
+
+.card .media img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.card .badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: #ff9800;
+  color: #fff;
+  padding: 4px 8px;
+  font-size: 12px;
+  border-radius: 5px;
+}
+
+.card .badge.sale {
+  background: #e53935;
+}
+
+.card .content {
+  padding: 15px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card .title {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+.card .desc {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.card .meta {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.card .price {
+  font-size: 15px;
+  font-weight: bold;
+  color: #0e7490;
+}
+
+.card .rating {
+  color: #ff9800;
+  font-size: 14px;
+}
+
+.card .actions {
+  display: flex;
+  gap: 10px;
+}
+
+.card .btn {
+  flex: 1;
+  padding: 8px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.card .btn {
+  background: #0e7490;
+  color: #fff;
+}
+
+.card .btn:hover {
+  background: #0c5970;
+}
+
+.card .btn.secondary {
+  background: #ff9800;
+}
+
+.card .btn.secondary:hover {
+  background: #e68900;
+}
+
+/* ========== Footer ========== */
+footer {
+  text-align: center;
+  padding: 15px;
+  background: #222;
+  color: #fff;
+  font-size: 14px;
+  margin-top: 20px;
+}
+
+/* ========== Responsive ========== */
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  header {
+    flex-direction: column;
+    text-align: center;
+    padding: 12px;
+  }
+
+  header nav {
+    margin-top: 8px;
+  }
+
+  .toolbar {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card .media img {
+    height: 200px;
+  }
+}
