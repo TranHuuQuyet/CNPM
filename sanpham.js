@@ -72,3 +72,43 @@ document.querySelectorAll(".card").forEach((card) => {
     window.location.href = "checkout.html";
   });
 });
+
+// Hàm bắn event purchase cho GA4
+function trackPurchase(productName, productId, price, quantity) {
+  gtag("event", "purchase", {
+    transaction_id: "T" + new Date().getTime(), // tạo ID giao dịch ngẫu nhiên
+    value: price * quantity,
+    currency: "VND",
+    items: [
+      {
+        item_name: productName,
+        item_id: productId,
+        price: price,
+        quantity: quantity,
+      },
+    ],
+  });
+  console.log("Đã gửi purchase event cho:", productName);
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  // Mảng chứa thông tin sản phẩm (trùng với HTML ở trên)
+  const products = [
+    { id: "P001", name: "Tai nghe X-Beat Pro", price: 1290000 },
+    { id: "P002", name: "Bàn phím NeoKeys 87", price: 1590000 },
+    { id: "P003", name: "Laptop Aero 14", price: 22990000 },
+    { id: "P004", name: "Smartphone Nova X", price: 9490000 },
+    { id: "P005", name: "Smartwatch Pulse S", price: 1990000 },
+    { id: "P006", name: "Loa Bluetooth Wave Mini", price: 890000 },
+  ];
+
+  // Lấy toàn bộ nút "Mua Ngay"
+  const buyButtons = document.querySelectorAll(".card .btn.secondary");
+
+  buyButtons.forEach((btn, index) => {
+    btn.addEventListener("click", function () {
+      const p = products[index];
+      trackPurchase(p.name, p.id, p.price, 1);
+    });
+  });
+});
