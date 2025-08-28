@@ -5,13 +5,25 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="style2.css">
+    <script src="sanpham.js" defer></script>
     <link
       rel="shortcut icon"
       href="https://cdn-icons-png.flaticon.com/512/263/263142.png"
       type="image/x-icon"
     />
     <title>Group12 - Sản Phẩm</title>
+     <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-20G9KY5HQT"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-20G9KY5HQT");
+    </script>
   </head>
   <body>
     <header>
@@ -178,82 +190,7 @@
       </section>
     </div>
 
-<script>
 
-  // Lấy giỏ hàng từ localStorage (nếu chưa có thì tạo mảng rỗng)
-  let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-  // Hiển thị giỏ hàng trong console (chỉ để kiểm tra)
-  function renderCart() {
-    console.log(cart);
-  }
-
-  // Toast khi thêm vào giỏ
-  const toast = (msg) => {
-    const el = document.createElement("div");
-    el.textContent = msg;
-    el.style.cssText = `position:fixed; left:50%; transform:translateX(-50%); 
-      bottom:22px; padding:10px 14px; border-radius:10px; 
-      background:linear-gradient(135deg, #22c55e, #16a34a); color:#fff; 
-      font-weight:600; box-shadow:0 8px 22px rgba(22,163,74,.35); z-index:9999;`;
-    document.body.appendChild(el);
-    setTimeout(() => { el.style.transition = "opacity .35s"; el.style.opacity = "0"; }, 1200);
-    setTimeout(() => el.remove(), 1700);
-  };
-
-  // Gắn sự kiện cho nút "Thêm vào giỏ"
-  document.querySelectorAll(".card").forEach((card) => {
-    const btn = card.querySelector(".btn:first-child");
-    btn.addEventListener("click", () => {
-      const name = card.querySelector(".title").textContent;
-      const price = card.querySelector(".price").textContent;
-
-      cart.push({ name, price });
-      localStorage.setItem("cart", JSON.stringify(cart)); // Lưu vào localStorage
-
-      toast(`Đã thêm ${name} vào giỏ 🛒`);
-      renderCart();
-    });
-  });
-
-//   thêm tìm kiếm sản phẩmm
-  // Lấy input ô tìm kiếm
-  const searchInput = document.querySelector(".search input");
-
-  // Lắng nghe sự kiện gõ phím
-  searchInput.addEventListener("input", function () {
-    const keyword = this.value.toLowerCase().trim();
-    const products = document.querySelectorAll(".card");
-
-    products.forEach((card) => {
-      const title = card.querySelector(".title").textContent.toLowerCase();
-      const desc = card.querySelector(".desc").textContent.toLowerCase();
-
-      if (title.includes(keyword) || desc.includes(keyword)) {
-        card.style.display = "block"; // Hiện sản phẩm nếu khớp
-      } else {
-        card.style.display = "none"; // Ẩn sản phẩm nếu không khớp
-      }
-    });
-  });
-
-
-
-    // Gắn sự kiện cho nút "Mua Ngay"
-  document.querySelectorAll(".card").forEach((card) => {
-    const buyNowBtn = card.querySelector(".btn.secondary");
-    buyNowBtn.addEventListener("click", () => {
-      const name = card.querySelector(".title").textContent;
-      const price = card.querySelector(".price").textContent;
-
-      // Lưu sản phẩm đang mua vào localStorage (tách riêng checkout)
-      localStorage.setItem("checkoutItem", JSON.stringify({ name, price }));
-
-      // Chuyển hướng sang trang checkout
-      window.location.href = "checkout.html";
-    });
-  });
-</script>
     <footer>
       <p>Minishop by Group12</p>
     </footer>

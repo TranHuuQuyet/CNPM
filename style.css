@@ -4,14 +4,8 @@ nav a.active {
 }
 
 
-/* header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 40px;
-  background: linear-gradient(to right, #0f172a, #0e7490);
-  color: #e2e8f0;
-} */
+
+
 header {
   position: fixed; /* dính header khi scroll */
   top: 0; /* nằm trên cùng */
@@ -56,7 +50,7 @@ body {
   color: #cbd5e1;
   margin-left: 10px; cho subtitle lệch ngang ra 1 chút
 }
-
+/* home san pham gio hang */
 nav a {
   margin-left: 20px;
   text-decoration: none;
@@ -70,16 +64,16 @@ nav a:hover {
 }
 
 /* fix header */
-* {
+/* * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-a {
+} */
+/* a {
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   color: #ffffff;
-}
+} */
 body {
   font-family: "Segoe UI", sans-serif;
   background: #f4f6f9;
