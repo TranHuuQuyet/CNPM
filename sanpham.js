@@ -112,3 +112,33 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+
+// Hàm convert "1.290.000₫" => 1290000
+function parsePrice(priceText) {
+  return Number(priceText.replace(/[₫,.]/g, ""));
+}
+
+// Lặp qua tất cả nút "Mua Ngay"
+document.querySelectorAll(".card").forEach((card, index) => {
+  let btnBuy = card.querySelector(".btn.secondary");
+  let title = card.querySelector(".title").innerText;
+  let priceText = card.querySelector(".price").innerText;
+  let price = parsePrice(priceText);
+
+  btnBuy.addEventListener("click", function () {
+    gtag("event", "purchase", {
+      transaction_id: "order_" + Date.now(), // mã đơn tạm thời
+      value: price,
+      currency: "VND",
+      items: [
+        {
+          item_name: title,
+          item_id: "SP" + (index + 1),
+          price: price,
+          quantity: 1,
+        },
+      ],
+    });
+    alert("✅ Đã ghi nhận mua hàng: " + title + " - " + priceText);
+  });
+});
